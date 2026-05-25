@@ -29,8 +29,9 @@ hbs.registerPartials('views/partials')
 
 
 
-mongoose.connect("mongodb://127.0.0.1/restorent",()=>{
-    console.log("Server connected..");
+mongoose.connect(process.env.AZURE_COSMOS_CONNECTIONSTRING)
+.then(() => {
+    console.log("MongoDB Connected");
 })
 app.listen(5656,()=>{
     console.log('server is start..')
